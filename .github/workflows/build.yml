@@ -1,0 +1,60 @@
+on: [push, pull_request, workflow_dispatch]
+
+name: Build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: zmkfirmware/zmk-build-arm:2.5
+    name: Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache west modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-zephyr-modules
+        with:
+          path: |
+            modules/
+            tools/
+            zephyr/
+            bootloader/
+            zmk/
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('manifest-dir/west.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: West Init
+        run: west init -l config
+      - name: West Update
+        run: west update
+      - name: West Zephyr export
+        run: west zephyr-export
+      - name: West Build (Corne-ish Zen Left)
+        run: west build -s zmk/app -b corne-ish_zen_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: Corne-ish Zen DTS File
+        if: ${{ always() }}
+        run: cat -n build/zephyr/corne-ish_zen_left.dts.pre.tmp
+      - name: Corne-ish Zen Left Kconfig file
+        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: Rename zmk.uf2
+        run: cp build/zephyr/zmk.uf2 corneish_zen_left.uf2
+      - name: Archive (Corne-ish Zen Left)
+        uses: actions/upload-artifact@v2
+        with:
+          name: firmware
+          path: corneish_zen_left.uf2
+      - name: West Build (Corne-ish Zen Right)
+        run: west build --pristine -s zmk/app -b corne-ish_zen_right -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: Corne-ish Zen Right Kconfig file
+        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: Rename zmk.uf2
+        run: cp build/zephyr/zmk.uf2 corneish_zen_right.uf2
+      - name: Archive (Corne-ish Zen Right)
+        uses: actions/upload-artifact@v2
+        with:
+          name: firmware
+          path: corneish_zen_right.uf2
