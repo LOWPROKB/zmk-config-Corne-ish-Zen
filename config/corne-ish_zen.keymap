@@ -9,74 +9,104 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define QWERTY 0
-#define GAMING 1
-#define NUMPAD 2
-#define NUMROW 3
-#define ADJUST 4
-#define CONFIG 5
+#define COM 1
+#define NUM 2
+#define SYM 3
+#define GAME 4
+#define MEH LC(LS(LALT))
+#define VOL_DN C_VOL_DN
+#define VOL_UP C_VOL_UP
+#define END_CALL LC(LA(LG(END)))
+
+&mt {
+    tapping_term_ms = <211>;
+};
 
 / {
+        behaviors {
+            hm: homerow_mods {
+                    compatible = "zmk,behavior-hold-tap";
+                    label = "HOMEROW_MODS";
+                    #binding-cells = <2>;
+                    tapping-term-ms = <211>;
+                    quick_tap_ms = <0>;
+                    flavor = "tap-preferred";
+                    bindings = <&kp>, <&kp>;
+            };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
-                        label = "QWERTY";
+                label = "BASE";
+// -----------------------------------------------------------------------------------------
+// |  ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  \  |
+// |  TAB |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '  |
+// |  RET |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  -  |  /  |
+//                    | GUI | SPC | COM |   | NUM | BKSP | MEH |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
-   &kp LALT  &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K    &kp L   &kp QUOT &kp ENTER
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
-              &kp LGUI &kp LCTL &mo NUMROW    &kp SPC &mo ADJUST &kp F13
+   &kp ESC     &kp Q      &kp W       &kp E      &kp R      &kp T     &kp Y     &kp U         &kp I          &kp O         &kp P         &kp BSLH
+   &kp TAB     &hm LSFT A &hm LCTRL S &hm LALT D &hm LGUI F &kp G     &kp H     &hm RGUI J    &hm RALT K     &hm LCTRL L   &hm LSFT SEMI &kp SQT
+   &hm MEH RET &lt SYM Z  &kp X       &kp C      &kp V      &kp B     &kp N     &kp M         &kp COMMA      &kp DOT       &lt SYM MINUS &hm MEH SLASH
+                                      &kp LCMD   &kp SPACE  &mo COM   &mo NUM   &kp BKSP      &kp MEH
                         >;
                 };
 
-                gaming_layer {
-                        label = "GAMING";
+                                common_layer {
+// -----------------------------------------------------------------------------------------
+// |      |     | BACK| FWD | PREV| NEXT|   | LFRG| LPAG|  UP | RPAG| RFRG| DEL  |
+// |      |     |     |     |     | REDO|   | PGUP| LFT | DWN | RGT |     | DELL |
+// |      |     | CUT | COPY|PASTE| UNDO|   | PGDN|     |     |     |     | GAME |
+//                    |     |     |     |   |     |     |     |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
-   &kp LALT  &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K    &kp L   &kp QUOT &kp ENTER
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
-               &kp LCTL &mo NUMROW &kp SPC    &kp SPC &mo ADJUST &kp F13
+    &trans    &trans    &kp LA(F16)  &kp LA(F17)  &kp F16    &kp F17        &kp LC(LEFT) &kp LA(LEFT)  &kp UP    &kp LA(RIGHT) &kp LC(RIGHT) &kp DEL
+    &trans    &trans    &trans       &trans       &trans     &kp LS(LG(Z))  &kp PG_UP    &kp LEFT      &kp DOWN  &kp RIGHT     &trans        &kp LG(BKSP)
+    &trans    &trans    &kp LG(X)    &kp LG(C)    &kp LG(V)  &kp LG(Z)      &kp PG_DN    &trans        &trans    &trans        &trans        &tog GAME
+                                     &trans       &trans     &trans         &trans       &trans        &trans
+                        >;
+                };
+                numbers_layer {
+                label = "NUM";
+// -----------------------------------------------------------------------------------------
+// |      | F6  | F7  | F8  | F9  | F10 |   |  *  |  7  |  8  |  9  |  +  |  END CALL |
+// |      |     |     |     |     |RESET|   |  /  |  4  |  5  |  6  |  -  |  0        |
+// |      | F1  | F2  | F3  | F4  | F5  |   |  ,  |  1  |  2  |  3  |  .  |  :        |
+//                    |     |     |     |   |     |     |     |
+                        bindings = <
+    &trans    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp KP_ASTERISK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_PLUS   &kp END_CALL
+    &trans    &trans    &trans    &trans    &trans    &reset    &kp KP_SLASH    &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MINUS  &kp KP_N0
+    &trans    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp CMMA        &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT    &kp COLON
+                                  &trans    &trans    &trans    &trans          &trans     &trans
+                        >;
+                };
+                symbols_layer {
+                label = "SYM";
+// -----------------------------------------------------------------------------------------
+// |      |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  `  |  ~  |      |
+// |      |  …  |  [  |  ]  |  {  |  }  |   |  (  |  )  |  '  |  "  |  —  |      |
+// |      |     |  \  |  |  |  _  |  -  |   |  =  |  +  |  /  |  ?  |     |      |
+//                    |     |     |     |   |     |     |     |
+                        bindings = <
+    &trans    &kp EXCL     &kp AT    &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET &kp AMPS  &kp STAR  &kp GRAVE &kp TILDE          &trans
+    &trans    &kp LA(SEMI) &kp LBKT  &kp RBKT  &kp LBRC  &kp RBRC    &kp LPAR  &kp RPAR  &kp SQT   &kp DQT   &kp LS(LA(MINUS))  &trans
+    &trans    &trans       &kp BSLH  &kp PIPE  &kp UNDER &kp MINUS   &kp EQUAL &kp PLUS  &kp SLASH &kp QMARK &trans             &trans
+                                     &trans    &trans    &trans      &trans    &trans    &trans
                         >;
                 };
 
-                numpad_layer {
-                        label = "NUMPAD";
-                        bindings = < 
-   &kp TAB     &none &none &none &none &none    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
-   &kp KP_NLCK &none &none &none &none &none    &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
-   &tog NUMPAD &none &none &none &none &none    &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
-              &mo CONFIG &kp LCTL &mo NUMROW    &kp SPC &kp KP_N0 &kp KP_DOT
-                        >;
-                };
-
-                numrow_layer {
-                        label = "NUMROW";
+                game_layer {
+                label = "GAME";
+// -----------------------------------------------------------------------------------------
+// |  ESC |     |     |     |     |     |   |  1  |  2  |  3  |  4  |  5  |   6  |
+// | LSFT |  A  |  S  |  D  |  F  |  G  |   |     |     |     |     |     |      |
+// |  RET |     |     |     |     |     |   |     |     |     |     |     |      |
+//                    |     |     |  L  |   |     |     |     |
                         bindings = <
-   &kp ESC   &kp N1 &kp N2 &kp N3    &kp N4    &kp N5       &kp N6   &kp N7   &kp N8 &kp N9    &kp N0   &kp DEL
-   &kp GRAVE &none  &none  &kp PSCRN &kp MINUS &kp EQUAL    &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI &none
-   &none     &none  &none  &kp BSLH  &kp LBKT  &kp RBKT     &none    &none    &none  &none     &none    &none 
-                          &mo CONFIG &kp LCTL &mo NUMROW    &kp SPC &mo ADJUST &kp F13
-                        >;
-                };
-
-                adjust_layer {
-                        label = "ADJUST";
-                        bindings = <
-   &kp F1      &kp F2  &kp F3   &kp F4    &kp F5 &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
-   &kp CAPS    &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
-   &tog NUMPAD &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &none
-                           &kp LGUI &kp LCTL &mo NUMROW    &kp SPC &mo ADJUST &tog GAMING
-                        >;
-                };
-
-                config_layer {
-                        label = "CONFIG";
-                        bindings = <
-   &reset     &none        &none        &none        &none        &none           &none &none &none &none &none &none 
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &none &none &none &none &none &none
-   &none      &none        &none        &none        &none        &none           &none &none &none &none &none &none
-                                                &mo CONFIG &kp LCTL &mo NUMROW    &kp SPC &mo ADJUST &kp F13
+    &kp ESC   &trans    &trans    &trans    &trans    &trans    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6
+    &kp LSFT  &kp A     &kp S     &kp D     &kp F     &kp G     &trans    &trans    &trans    &trans    &trans    &trans
+    &kp RET   &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+                                  &kp L     &trans    &trans    &trans    &trans    &trans
                         >;
                 };
         };
