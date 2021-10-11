@@ -74,10 +74,10 @@
 // |      | F1  | F2  | F3  | F4  | F5  |   |  ,  |  1  |  2  |  3  |  .  |  :        |
 //                    |     |     |     |   |     |     |     |
                         bindings = <
-    &trans    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp KP_ASTERISK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_PLUS   &kp END_CALL
-    &trans    &trans    &trans    &trans    &trans    &reset    &kp KP_SLASH    &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MINUS  &kp KP_N0
-    &trans    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp CMMA        &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT    &kp COLON
-                                  &trans    &trans    &trans    &trans          &trans     &trans
+    &trans    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10      &kp KP_ASTERISK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_PLUS   &kp END_CALL
+    &trans    &trans    &trans    &trans    &trans    &bootloader  &kp KP_SLASH    &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_MINUS  &kp KP_N0
+    &trans    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5       &kp CMMA        &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT    &kp COLON
+                                  &trans    &trans    &trans       &trans          &trans     &trans
                         >;
                 };
                 symbols_layer {
