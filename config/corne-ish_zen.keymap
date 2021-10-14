@@ -37,7 +37,7 @@
    &kp TAB   &kp Q       &kp W      &kp E      &kp R      &kp T        &kp Y   &kp U      &kp I        &kp O      &kp P          &kp BKSP
    &kp ESC   &hm LSHFT A &hm LCTL S &hm LALT D &hm LGUI F &kp G        &kp H   &hm RGUI J &hm RALT K   &hm RCTL L &hm RSHFT SEMI &kp QUOT
    &kp LSHFT &kp Z       &kp X      &kp C      &kp V      &kp B        &kp N   &kp M      &kp COMMA    &kp DOT    &kp RA(FSLH)   &kp ENTER
-                                    &kp LGUI   &none  &kp LSHFT    &kp SPC &none  &kp RA(FSLH)
+                                    &kp LGUI   &none  &kp LSHFT    &kp SPC &none  &kp &none
                         >;o 
                 };
 
