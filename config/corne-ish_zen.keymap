@@ -10,9 +10,11 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define QWERTY 0
+/*
 #define LOWER 1
 #define RAISE 2
 #define ADJUST 3
+*/
 
 / {
         behaviors {
@@ -20,9 +22,9 @@
                 compatible = "zmk,behavior-hold-tap";
                 label = "HOMEROW_MODS";
                 #binding-cells = <2>;
-                tapping-term-ms = <150>;
+                tapping-term-ms = <200>;
                 quick_tap_ms = <0>;
-                flavor = "tap-preferred";
+                flavor = "balanced";
                 bindings = <&kp>, <&kp>;
             };
         };
