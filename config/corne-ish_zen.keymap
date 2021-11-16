@@ -55,10 +55,10 @@
                 default_layer {
                         label = "QWERTY";
                         bindings = <
-   &kp none   &kp Q &kp W &kp E &kp R &kp T                            &kp Y &kp U &kp I    &kp O   &kp P    &kp none
-   &kp none  &mt LGUI A &mt LCTL S &mt LALT D &mt LSHIFT F &kp G       &kp H &mt RSHIFT J &mt RALT K  &mt RCTRL L   &mt RGUI COLON &kp none
+   &kp none &kp Q &kp W &kp E &kp R &kp T                            &kp Y &kp U &kp I    &kp O   &kp P    &kp none
+   &kp none &mt LGUI A &mt LCTL S &mt LALT D &mt LSHIFT F &kp G       &kp H &mt RSHIFT J &mt RALT K  &mt RCTRL L &mt RGUI COLON &kp none
    &kp none &kp Z &kp X &kp C &kp V &kp B                              &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp none
-              &kp ESC &lt 4 BKSP &lt 2 ENTER                         &lt 1 DEL &lt 3 SPC &lt 5 TAB
+              &kp ESC &lt ADJUST BKSP &lt NUMPAD ENTER                         &lt GAMING DEL &lt NUMROW SPC &lt CONFIG TAB
                         >;
                 };
 
@@ -85,7 +85,7 @@
                 numrow_layer {
                         label = "NUMROW";
                         bindings = <
-   &kp none   &kp EXCL &kp AT &kp POUND    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS   &kp ASTRK &kp RPAR    &kp EQUAL   &kp none
+   &kp none &kp EXCL &kp AT &kp POUND &kp DLLR &kp PRCNT    &kp CARET &kp AMPS &KP_ASTERISK &kp RPAR &kp EQUAL &kp none
    &kp GRAVE &none  &none  &kp PSCRN &kp MINUS &kp EQUAL    &kp SEMI &kp LEFT &kp DOWN &kp UP &kp RIGHT &none
    &none     &none  &none  &kp BSLH  &kp LBKT  &kp RBKT     &none    &none    &none  &none     &none    &none 
                           &mo CONFIG &kp LCTL &mo NUMROW    &kp SPC &mo ADJUST &kp F13
@@ -95,9 +95,9 @@
                 adjust_layer {
                         label = "ADJUST";
                         bindings = <
-   &kp none      &kp F2  &kp F3   &kp F4    &kp F5 &kp F6        &kp F9    &kp F10   &kp F11 &kp F12  &kp none  &kp none 
-   &kp none    &kp LEFT &kp DOWN &kp UP &RIGHT  &PG_UP           &kp F5    &kp F6    &kp F7  &kp F8   &none  &kp none 
-   &tog none &kp K_UNDO &kp K_CUT  &kp K_PASTE &none  &none      &kp F1    &kp F2    &kp F3  &F4     &none   &none
+   &kp none &kp F2 &kp F3 &kp F4 &kp F5 &kp F6                &kp F9 &kp F10  &kp F11 &kp F12  &kp none  &kp none 
+   &kp none &kp LEFT &kp DOWN &kp UP &RIGHT  &PG_UP           &kp F5 &kp F6 &kp F7  &kp F8  &none  &kp none 
+   &tog none &kp K_UNDO &kp K_CUT  &kp K_PASTE &none  &none      &kp F1    &kp F2    &kp F3  &F4 &none   &none
                            &kp LGUI &kp LCTL &mo NUMROW          &kp SPC &mo ADJUST &tog GAMING
                         >;
                 };
