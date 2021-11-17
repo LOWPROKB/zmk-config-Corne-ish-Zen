@@ -16,77 +16,45 @@
 #define ADJUST 4
 #define CONFIG 5
 
-#define COMBO(NAME, BINDINGS, KEYPOS) \
-  combo_##NAME { \
-    timeout-ms = <50>; \
-    bindings = <BINDINGS>; \
-    key-positions = <KEYPOS>; \
-  };
-
-&mt {
-  flavor = "tap-preferred";
-  //tapping_term_ms = <200>;
-};
-
-&kscan0 {
-    debounce-period = <10>;
-};
-
 / {
-            combos {
-        compatible = "zmk,combos";
-
-          COMBO(escape, &kp ESCAPE, 1 2)
-          COMBO(backspace, &kp BACKSPACE, 9 10)
-          COMBO(quote, &kp APOSTROPHE, 21 22)
-          COMBO(minus, &kp MINUS, 4 5)
-          COMBO(R parenthesis, &kp RPAR, 16 17)
-          COMBO(L parenthesis, &kp LPAR, 18 19)
-          COMBO(tab, &kp tab, 2 3)
-          COMBO(exclamation, &kp EXCL, 6 7)
-          COMBO(btc, &bt BT_CLR, 25 34)
-
-
-};
-
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
                         label = "QWERTY";
                         bindings = <
-   &none &kp Q &kp W &kp E &kp R &kp T                            &kp Y &kp U &kp I    &kp O   &kp P    &none
-   &none &mt LGUI A &mt LCTL S &mt LALT D &mt LSHIFT F &kp G       &kp H &mt RSHIFT J &mt RALT K  &mt RCTRL L &mt RGUI COLON &none
-   &none &kp Z &kp X &kp C &kp V &kp B                              &kp N &kp M &kp CMMA &kp DOT &kp FSLH &none
-              &kp ESC &lt ADJUST BKSP &lt NUMPAD ENTER                         &lt GAMING DEL &lt NUMROW SPC &lt CONFIG TAB
+   &kp TAB   &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
+   &kp LALT  &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K    &kp L   &kp QUOT &kp ENTER
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
+              &kp LGUI &kp LCTL &mo NUMROW    &LT NUMROW SPC &mo ADJUST &kp F13
                         >;
                 };
 
                 gaming_layer {
                         label = "GAMING";
                         bindings = <
-   &none   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5       &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &none
-   &none &none &none &none &none&none &none &none            &kp PG_UP &kp LEFT &kp DOWN   &kp UP   &kp RIGHT &none
-   &none &none &none &none &none&none &none &none             &kp PG_DN &none &none &none &none &none
-               &kp LCTL &mo NUMROW &kp SPC             &kp SPC &mo ADJUST &kp F13
+   &kp TAB   &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I    &kp O   &kp P    &kp BKSP
+   &kp LALT  &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K    &kp L   &kp QUOT &kp ENTER
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
+               &kp LCTL &mo NUMROW &kp SPC    &kp SPC &mo ADJUST &kp F13
                         >;
                 };
 
                 numpad_layer {
                         label = "NUMPAD";
                         bindings = < 
-   &none &kp BSPC &KP_N7 &KP_N8 &KP_N9 &KP_MINUS    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &none
-   &none &kp DEL &KP_N4 &KP_N5 &KP_N6 &KP_PLUS      &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
-   &none &kp ESC &KP_N1 &KP_N2 &KP_N3 &KP_SLASH     &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
-                   &KP_DOT &KP_N0 &mo NUMROW           &kp SPC &kp KP_N0 &kp KP_DOT
+   &kp TAB     &none &none &none &none &none    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
+   &kp KP_NLCK &none &none &none &none &none    &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
+   &tog NUMPAD &none &none &none &none &none    &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
+              &mo CONFIG &kp LCTL &mo NUMROW    &kp SPC &kp KP_N0 &kp KP_DOT
                         >;
                 };
 
                 numrow_layer {
                         label = "NUMROW";
                         bindings = <
-   &none &kp EXCL &kp AT &kp POUND &kp DLLR &kp PRCNT    &kp CARET &kp AMPS &KP_ASTERISK &kp RPAR &kp EQUAL &none
-   &kp GRAVE &none  &none  &kp PSCRN &kp MINUS &kp EQUAL    &kp SEMI &kp LEFT &kp DOWN &kp UP &kp RIGHT &none
+   &kp ESC   &kp N1 &kp N2 &kp N3    &kp N4    &kp N5       &kp N6   &kp N7   &kp N8 &kp N9    &kp N0   &kp DEL
+   &kp GRAVE &none  &none  &kp PSCRN &kp MINUS &kp EQUAL    &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp SEMI &none
    &none     &none  &none  &kp BSLH  &kp LBKT  &kp RBKT     &none    &none    &none  &none     &none    &none 
                           &mo CONFIG &kp LCTL &mo NUMROW    &kp SPC &mo ADJUST &kp F13
                         >;
@@ -95,10 +63,10 @@
                 adjust_layer {
                         label = "ADJUST";
                         bindings = <
-   &none &kp F2 &kp F3 &kp F4 &kp F5 &kp F6                &kp F9 &kp F10  &kp F11 &kp F12  &none  &none 
-   &none &kp LEFT &kp DOWN &kp UP &RIGHT  &PG_UP           &kp F5 &kp F6 &kp F7  &kp F8  &none  &none 
-   &none &kp K_UNDO &kp K_CUT  &kp K_PASTE &none  &none      &kp F1    &kp F2    &kp F3  &F4 &none   &none
-                           &kp LGUI &kp LCTL &mo NUMROW          &kp SPC &mo ADJUST &tog GAMING
+   &kp F1      &kp F2  &kp F3   &kp F4    &kp F5 &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
+   &kp CAPS    &kp INS &kp HOME &kp PG_UP &none  &none     &kp LEFT &kp DOWN &kp UP &kp RIGHT &none   &none
+   &tog NUMPAD &kp DEL &kp END  &kp PG_DN &none  &none     &none    &none    &none  &none     &none   &none
+                           &kp LGUI &kp LCTL &mo NUMROW    &kp SPC &mo ADJUST &tog GAMING
                         >;
                 };
 
