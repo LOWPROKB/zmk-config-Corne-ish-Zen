@@ -1,0 +1,60 @@
+/*
+*
+* Copyright (c) 2021 Darryl deHaan
+* SPDX-License-Identifier: MIT
+*
+*/
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+                        label = "ENGRAM";
+// -----------------------------------------------------------------------------------------
+// |  --- |  V  |  F  |  D  |  L  |  Q  |   |  Z  |  U   |  O  |  Y  |  W  | ---  |     &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+// |  --- |  N  |  S  |  T  |  H  |  :  |   |  ;  |  A   |  E  |  I  |  C  | ---  |
+// |  --- |  P  |  B  |  M  |  R  |  ,  |   |  .  |  K   |  J  |  X  |  G  | ---  |
+//                    | --- | --- | SPC |   | SPC | ---  | --- |                          &mt LSHIFT A
+                        bindings = <
+   &none &kp V &kp F &kp D &kp L &kp Q                               &kp Z &kp U &kp O  &kp Y &kp W &none 
+   &none &kp N &kp S &kp T &kp H &kp COLON                           &kp SEMICOLON &kp A &kp E  &kp I &kp C &none 
+   &none &mt LSHIFT P &mt LCTRL B &mt LALT M &mt LGUI R &kp COMMA    &kp PERIOD &mt RGUI K &mt RALT J &mt RCTRL X &mt RSHIFT G &none 
+                  &none &none &lt 1 SPACE   &lt 1 SPACE &none &none 
+                        >;
+                };
+                lower_layer {
+                        label = "L1";
+// -----------------------------------------------------------------------------------------
+// |  --- |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | ---  |
+// |  --- |  [  | TAB |  {  |  <  |  /  |   |  \  |  >  |  }  | UP  |  ]  | ---  |
+// |  --- |  -  |  =  |  `  |  (  |  '  |   |  "  |  )  | LFT | DWN | RGT | ---  |
+//                    | --- |     |BKSPC|   | ENT |     | --- |
+                        bindings = <
+   &none &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &none 
+   &none &kp LBKT &kp TAB &kp LBRC &kp LT &kp FSLH           &kp BSLH &kp GT &kp RBRC &kp UP &RBKT &none 
+   &none &mt LSHIFT MINUS &mt LCTRL EQUAL &mt LALT GRAVE &mt LGUI LPAR &kp SQT    &kp DQT &mt RGUI RPAR &mt RALT LEFT &mt RCTRL DOWN &mt RSHIFT RIGHT &none 
+                          	 &none &none &lt 2 BSPC    &lt 2 ENTER &none &none 
+                        >;
+                };
+
+                raise_layer {
+                        label = "L2";
+// -----------------------------------------------------------------------------------------
+// |  --- |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | ---  |
+// |  --- |  z  |  x  |  c  |  v  |  ?  |   | "|" | HOM | PUP | --- | ESC | ---  |
+// |  --- |  _  |  +  |  ~  | --- | --- |   | --- | END | PDN | --- | CAD | ---  |
+//                    | BT1 | BT2 | --- |   | --- | BT3 | BT4 |
+                        bindings = <
+   &none &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT              &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &none 
+   &none &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE &kp QMARK    &kp PIPE &kp HOME &kp PG_UP &trans &kp ESC &none 
+   &none &kp UNDER &kp PLUS &kp TILDE &trans &trans               &trans &kp END  &kp PG_DN &trans &kp LC(LA(DEL)) &none 
+                    	    &bt BT_SEL 1 &bt BT_SEL 2 &trans    &trans &bt BT_SEL 3 &bt BT_SEL 4
+                        >;
+                };
+        };
+};
