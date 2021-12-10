@@ -36,7 +36,7 @@
 //                    | --- |     |BKSPC|   | ENT |     | --- |
                         bindings = <
    &none &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &none 
-   &none &kp LBKT &kp TAB &kp LBRC &kp LT &kp FSLH           &kp BSLH &kp GT &kp RBRC &kp UP &RBKT &none 
+   &none &kp LBKT &kp TAB &kp LBRC &kp LT &kp FSLH           &kp BSLH &kp GT &kp RBRC &kp UP &kp RBKT &none 
    &none &mt LSHIFT MINUS &mt LCTRL EQUAL &mt LALT GRAVE &mt LGUI LPAR &kp SQT    &kp DQT &mt RGUI RPAR &mt RALT LEFT &mt RCTRL DOWN &mt RSHIFT RIGHT &none 
                           	 &none &none &lt 2 BSPC    &lt 2 ENTER &none &none 
                         >;
