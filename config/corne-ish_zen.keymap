@@ -16,10 +16,10 @@
                 default_layer {
                         label = "ENGRAM";
 // -----------------------------------------------------------------------------------------
-// |  --- |  V  |  F  |  D  |  L  |  Q  |   |  Z  |  U   |  O  |  Y  |  W  | ---  |     &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+// |  --- |  V  |  F  |  D  |  L  |  Q  |   |  Z  |  U   |  O  |  Y  |  W  | ---  |   
 // |  --- |  N  |  S  |  T  |  H  |  :  |   |  ;  |  A   |  E  |  I  |  C  | ---  |
 // |  --- |  P  |  B  |  M  |  R  |  ,  |   |  .  |  K   |  J  |  X  |  G  | ---  |
-//                    | --- | --- | SPC |   | SPC | ---  | --- |                          &mt LSHIFT A
+//                    | --- | --- | SPC |   | SPC | ---  | --- |                         
                         bindings = <
    &none &kp V &kp F &kp D &kp L &kp Q                               &kp Z &kp U &kp O  &kp Y &kp W &none 
    &none &kp N &kp S &kp T &kp H &kp COLON                           &kp SEMICOLON &kp A &kp E  &kp I &kp C &none 
@@ -46,7 +46,7 @@
                         label = "L2";
 // -----------------------------------------------------------------------------------------
 // |  --- |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | ---  |
-// |  --- |  z  |  x  |  c  |  v  |  ?  |   | "|" | HOM | PUP | --- | ESC | ---  |
+// |  --- |  z  |  x  |  c  |  v  |  ?  |   | "|" | HOM | PUP | --- | ESC | ---  | 
 // |  --- |  _  |  +  |  ~  | --- | --- |   | --- | END | PDN | --- | CAD | ---  |
 //                    | BT1 | BT2 | --- |   | --- | BT3 | BT4 |
                         bindings = <
