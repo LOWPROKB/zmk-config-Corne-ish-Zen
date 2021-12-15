@@ -24,8 +24,8 @@
 
 #define COLMAK 0
 #define NUMROW 1
-#define NUMPAD 3
-#define ADJUST 2
+#define NUMPAD 2
+#define ADJUST 3
 
 / {
         keymap {
@@ -34,10 +34,10 @@
                 default_layer {
                         label = "COLMAK";
                         bindings = <
-   &kp TAB  &kp Q &kp W &kp F &kp P &kp B    	        &hm HOME J &kp L  &kp U        &kp Y   &kp SEMICOLON   &kp RALT
-   &kp BKSP  &kp A &kp R &hm LSHFT S &kp T &kp G        &hm END M  &kp N  &hm RSHFT E  &kp I   &kp O           &kp QUOT
-   &kp LCTRL &kp Z &kp X &kp C &hm DEL D &hm LGUI V     &kp K      &kp H  &kp CMMA     &kp DOT &kp FSLH        &kp CAPS
-              &to NUMROW &kp ENT &kp SPC    		    &kp SPC &kp ESC &to ADJUST
+   &kp TAB  &kp Q &kp W &kp F &kp P &kp B    	        &kp J &kp L  &kp U        &kp Y   &kp SEMICOLON      &kp RALT
+   &kp BKSP  &hm LALT A &kp R &hm LSHFT S &kp T &kp G   &kp M  &kp N  &hm RSHFT E  &kp I   &hm RALT  &kp QUOT
+   &kp LCTRL &kp Z &kp X &kp C &kp D &hm LGUI V          &kp K      &kp H  &kp CMMA     &kp DOT &kp FSLH           &kp CAPS
+              &tog NUMROW &kp ENT &kp SPC    		    &kp SPC &kp ESC &tog ADJUST
                         >;
                 };
 
@@ -48,7 +48,7 @@
    &kp MINUS   &kp N1     &kp N2       &kp N3    &kp N4    &kp N5        &kp N6       &kp N7    &kp N8      &kp N9     &kp N0   &kp DEL
    &kp GRAVE   &kp EXCL   &kp AT_SIGN  &kp HASH  &kp DLLR  &kp PRCNT     &kp CARET    &kp AMPS  &kp ASTRK   &kp LPAR   &kp RPAR  &kp EQUAL
    &tog NUMPAD  &kp LEFT  &kp RIGHT    &kp DOWN  &kp UP    &kp RBKT      &none        &kp RALT  &kp BSLH    &kp LBKT   &kp RBKT    &kp RSHFT 
-                          &to 0  &kp ENT &kp SPC   		    	        &kp SPC      &kp RCTRL   &to ADJUST
+                          &tog NUMROW  &kp ENT &kp SPC   		    	      &kp SPC      &kp RCTRL   &to ADJUST
                         >;
                 };
 
@@ -58,7 +58,7 @@
    &kp TAB     &none     &none     &none     &none  &none          &kp KP_EQUAL     &kp KP_N7    &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
    &kp KP_NLCK &none     &none     &none    &none  &none           &kp KP_ASTERISK  &kp KP_N4   &kp KP_N5  &kp KP_N6 &kp KP_PLUS  &KP_EQUAL
    &tog NUMPAD &kp LEFT  &kp RIGHT &kp DOWN  &kp UP &none    	 &kp KP_SLASH       &kp KP_N1   &kp KP_N2  &kp KP_N3 &kp KP_ENTER &kp CMMA
-                               &to 0 &kp ENT &kp SPC 		    &kp SPC          &kp KP_N0 &kp KP_DOT
+                               &to COLMAK &kp ENT &kp SPC 		    &kp SPC          &kp KP_N0 &kp KP_DOT
                         >;
                 };
 
@@ -66,11 +66,10 @@
                         label = "ADJUST";
                         bindings = <
    &kp F1      &kp F2  &kp F3   &kp F4    &kp F5 &kp F6                            &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &none 	 &none     &kp UP &none  &none   &none
-   &tog NUMPAD &kp DEL &kp END  &kp PG_DN &none  &none                             &none    &kp LEFT    &kp DOWN  &kp RIGHT     &none   &none
-                           &to 0 &kp LCTL &kp SPC                                  &kp SPC &kp RCTL  &to NUMROW
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &kp C_PLAY_PAUSE 	 &kp C_VOLUME_UP     &kp C_VOLUME_DOWN   &none      &none    &kp HOME
+   &tog NUMPAD &kp DEL &kp END  &kp PG_DN &none  &reset                             &none    &kp LEFT   &kp DOWN  &kp RIGHT  &kp UP   &kp END
+                           &to COLMAK &kp LCTL &kp SPC                                  &kp SPC &kp RCTL  &tog ADJUST
                         >;
                 };
-
         };
 };
