@@ -20,7 +20,8 @@
             bindings = <&kp>, <&kp>;
         };
     };
-    };
+};
+
 
 / {
         keymap {
@@ -37,7 +38,7 @@
    &kp TAB   &kp Q &kp W &kp F &kp P &kp B         &kp J &kp L  &kp U     &kp Y   &kp SEMI  &kp RALT
    &kp BKSP &kp A &kp R &hm LSHFT S &kp T &kp G    &kp M &kp N  &hm RSHFT E   &kp I   &kp O   &kp SQT
    &kp LCTRL &kp Z &kp X &kp C &kp D &hm LGUI V    &kp K &kp H  &kp COMMA &kp DOT &kp FSLH  &kp CAPS
-                  &tog NUMBER &kp RET &kp SPACE             &kp SPACE &kp ESC &tog SYMBOL
+                  &tog 1 &kp RET &kp SPACE             &kp SPACE &kp ESC &tog 2
                         >;
                 };
                 lower_layer {
