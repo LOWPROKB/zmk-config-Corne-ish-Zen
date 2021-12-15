@@ -25,8 +25,7 @@
 #define COLMAK 0
 #define NUMROW 1
 #define NUMPAD 3
-#define ADJUST 4
-#define CONFIG 5
+#define ADJUST 2
 
 / {
         keymap {
