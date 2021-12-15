@@ -13,10 +13,9 @@
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
+            label = "homerow mods";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick_tap_ms = <0>;
+            tapping-term-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
@@ -28,7 +27,7 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-                        label = "COLMAK";
+                        label = "CLMK";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
