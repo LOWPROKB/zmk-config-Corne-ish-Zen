@@ -38,7 +38,7 @@
    &kp TAB  &kp Q &kp W &kp F &kp P &kp B    	    &hm HOME J &kp L &kp U        &kp Y   &kp SEMICOLON   & RALT
    &kp BKSP  &kp A &kp R &hm LSHFT S &kp T &kp G    &hm END M  &kp N &hm RSHFT E  &kp I   &kp O           &kp QUOT
    &kp LCTRL &hm LGUI Z &kp X &kp C &hm DEL D &kp V     &kp K       &kp H &kp CMMA     &kp DOT &kp FSLH     &kp CAPS
-              &to NUMROW &kp ENT &kp SPC    		& SPC &kp ESC &to ADJUST
+              &to NUMROW &kp ENT &kp SPC    		&kp SPC &kp ESC &to ADJUST
                         >;
                 };
 
