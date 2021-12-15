@@ -49,8 +49,8 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp MINUS    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5                          &kp N6   &kp N7   &kp N8 &kp N9 &kp N0 &kp DEL
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                      &kp EQUAL &kp KP_MULTIPLY &kp DIVIDE &kp BSLH &kp GRAVE &kp HOME
-   &kp LSHFT  &trans       &trans       &kp C_PLAY_PAUSE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN         &kp LEFT &kp RIGHT &kp UP &kp DOWN &trans &kp END
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                      &kp EQUAL &kp KP_MULTIPLY &kp KP_DIVIDE &kp BSLH &kp HOME &kp GRAVE
+   &kp LSHFT  &trans       &trans       &kp C_PLAY_PAUSE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN         &kp LEFT &kp RIGHT &kp UP &kp DOWN &kp END &kp RSHFT
                           	        &trans     &trans       &trans                              &trans   &trans   &trans 
                         >;
                 };
