@@ -28,7 +28,7 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-                        label = "CLMK";
+                        label = "colemak";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -38,11 +38,11 @@
    &kp TAB   &kp Q &kp W &kp F &kp P &kp B                  &kp J &kp L  &kp U     &kp Y   &kp SEMI  &kp MINUS
    &kp BKSP &kp A &hm LCTRL R &hm LSHFT S &hm LALT T &kp G    &kp M &hm RALT N  &hm RSHFT E   &hm RCTRL I   &kp O   &kp SQT
    &kp LCTRL &kp Z &kp X &kp C &kp D &hm LGUI V                 &kp K &kp H  &kp COMMA &kp DOT &kp FSLH  &kp CAPS
-                  &tog 1 &kp RET &kp SPACE                       &kp SPACE &kp ESC &tog 2
+                  &tog 1 &kp SPACE &kp RET             &kp ESC &kp SPACE &tog 2
                         >;
                 };
                 lower_layer {
-                        label = "NUMBER";
+                        label = "number";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -50,14 +50,14 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp MINUS    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5                          &kp N6   &kp N7   &kp N8 &kp N9 &kp N0 &kp DEL
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                      &kp EQUAL &kp KP_MULTIPLY &kp KP_DIVIDE &kp BSLH &kp HOME &kp GRAVE
+   &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE                      &kp EQUAL &kp KP_MULTIPLY &kp KP_DIVIDE &kp BSLH &kp HOME &kp GRAVE
    &kp LSHFT  &trans       &trans       &kp C_PLAY_PAUSE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN         &kp LEFT &kp RIGHT &kp UP &kp DOWN &kp END &kp RSHFT
                           	        &trans     &trans       &trans                              &trans   &trans   &trans 
                         >;
                 };
 
                 raise_layer {
-                        label = "SYMBOL";
+                        label = "symbol";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -65,7 +65,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp GRAVE  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                        &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans                            &kp MINUS &kp EQUAL &kp LBKT    &kp RBKT &kp BSLH &kp GRAVE
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
    &kp LSHFT &kp C_AC_UNDO &kp C_AC_CUT &kp C_AC_COPY &trans &kp C_AC_PASTE      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
                     	     &trans     &trans       &trans                              &trans   &trans   &trans
                         >;
