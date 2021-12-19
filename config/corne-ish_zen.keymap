@@ -64,8 +64,8 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp GRAVE  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                        &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+   &kp GRAVE  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                        &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &bt BT_CL
+   &kp BKSP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
    &kp LSHFT &kp C_AC_UNDO &kp C_AC_CUT &kp C_AC_COPY &trans &kp C_AC_PASTE      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
                     	     &trans     &trans       &trans                              &trans   &trans   &trans
                         >;
