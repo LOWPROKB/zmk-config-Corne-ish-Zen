@@ -52,6 +52,21 @@
                         >;
                 };
 
+                move_layer {
+                        label = "MOVE";
+// -----------------------------------------------------------------------------------------
+// |      |     |     |           |      |           |   | PREV | PREV_TAB | NEXT_TAB | NEXT |     |      |
+// | BTCLR| BT1 | BT2 |    BT3    | BT4  | BT5       |   | LFT  | DWN      |  UP      | RGT  |     |      |
+// |      |     |     |           |      | LSFT(ALT) |   |      |          |          |      |     |      |
+//                    | LSFT(CTL) | CLMK |           |   | RGUI |          |          |
+                        bindings = <
+   &trans     &none        &none        &none         &none        &none          &kp LG(LBKT) &kp LC(LS(TAB)) &kp LC(TAB) &kp LG(RBKT) &none &trans
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT     &kp DOWN        &kp UP      &kp RIGHT    &none &none
+   &none      &none        &none        &none         &none        &kp LS(LALT)   &none        &none           &none       &none        &none &trans
+                    	                &kp LS(LCTRL) &to _COLEMAK &none          &kp RGUI     &none           &none
+                        >;
+                };
+
                 symbol_layer {
                         label = "SYMBOLS";
 // -----------------------------------------------------------------------------------------
