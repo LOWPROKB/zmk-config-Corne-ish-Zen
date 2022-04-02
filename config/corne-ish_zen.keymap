@@ -1,6 +1,6 @@
 /*
 *
-* Copyright (c) 2021 Darryl deHaan
+* Copyright (c) 2022 Andrew Escay
 * SPDX-License-Identifier: MIT
 *
 */
@@ -9,22 +9,46 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+&kp LCTRL &kp LSHFT
+
+#define _COLEMAK 0
+#define _MOVE 1
+#define _SYMBOLS 2
+#define _NUMBERS 3
+#define _WINDOW 4
+
 / {
+        behaviors {
+		meh: behavior_meh {
+			compatible = "zmk,modified-key-press";
+			label = "MEH";
+			#binding-cells = <1>;
+			modifiers = MOD_GUI | MOD_LSFT | MOD_LCTL;
+		};
+                td_caps: tap_dance_caps {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "TAP_DANCE_CAPS";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&kp LSHFT>, <&kp CAPS>;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
-                        label = "QWERTY";
+                        label = "COLEMAK";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// |  ESC |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  | BKSP |
+// |  TAB |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
+// |      |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | ENT  |
+//                    | WIN | MEH | CPS |   | SPC | SYM  | NUM |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+   &kp ESC &kp Q &kp W       &kp F       &kp P      &kp B      &kp J     &kp L        &kp U        &kp Y       &kp SEMI &kp BSPC
+   &kp TAB &kp A &mt LCTRL R &mt LALT S  &mt LGUI T &kp G      &kp M     &mt RGUI N   &mt RALT E   &mt RCTRL I &kp O    &kp SQT
+   &none   &kp Z &kp X       &kp C       &kp D      &kp V      &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH &kp RET 
+                             &to _WINDOW &meh       &td_caps   &kp SPACE &sl _SYMBOLS &to _NUMBERS
                         >;
                 };
                 lower_layer {
