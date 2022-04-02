@@ -95,5 +95,19 @@
                         >;
                 };
 
+                window_layer {
+                        label = "WINDOW";
+// -----------------------------------------------------------------------------------------
+// | PSCRN|     | LWIN | TOP  | RWIN  |     |   |     |  Q4 |  Q1 |   |     |      |
+// |      |     | LEFT | DOWN | RIGHT |     |   |     |  Q3 |  Q2 |   |     |      |
+// |      |     |      |      |       |     |   |     |     |     |   |     |      |
+//                     |      | CLMK  |     |   |     |     |     |
+                        bindings = <
+   &kp PSCRN &none &kp LA(LC(LG(LEFT))) &kp LA(LC(UP))   &kp LA(LC(LG(RIGHT))) &none   &none &kp LA(LC(U) &kp LA(LC(I)) &none &none &trans
+   &none     &none &kp LA(LC(LEFT))     &kp LA(LC(DOWN)) &kp LA(LC(RIGHT))     &none   &none &kp LA(LC(J) &kp LA(LC(K)) &none &none &none
+   &none     &none &none                &none            &none                 &none   &none &none        &none         &none &none &trans
+                    	                &none            &to _COLEMAK          &none   &none &none        &none
+                        >;
+                };
         };
 };
