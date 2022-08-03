@@ -28,7 +28,6 @@
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp P &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
               		&mo 2 &kp GUI &kp SPC    &kp ENT &kp BKSP &mo 1
                         >;
-                        >;
                 };
 
                 gaming_layer {
