@@ -26,13 +26,13 @@
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp D &kp F &kp K    &kp J &kp U &kp R    &kp L   &kp SEMI    &kp BSPC
-   &mo 2     &kp A &kp S &kp E &kp T &kp G    &kp Y &kp J &kp I    &kp O   &kp H    &kp ENTER
+   &mo 2 &kp A &kp S &kp E &kp T &kp G    	  &kp Y &kp J &kp I    &kp O   &kp H    &kp ENTER
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp P &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
-                   &mo 2 &kp LGUI &kp SPACE   &kp ENTER &kp BSPC &mo 1
+              &mo 2 &kp LGUI &kp SPACE    &kp ENTER &kp BSPC &mo 1
                         >;
                 };
-                adj_layer {
-                        label = "ADJ";
+                lower_layer {
+                        label = "NUMBER";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
