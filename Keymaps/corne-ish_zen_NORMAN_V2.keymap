@@ -33,9 +33,9 @@
 //                    |MO(2)| GUI | SPC |   | ENT | BS   |MO(1)|
                         bindings = <
    &kp TAB   &kp Q &kp W &kp D &kp F &kp K    &kp J &kp U &kp R    &kp L   &kp ;    &kp BKSP
-   &kp MO(3) &kp A &kp S &kp E &kp T &kp G    &kp Y &kp J &kp I    &kp O   &kp H    &kp ENTER
+   &mo 3 &kp A &kp S &kp E &kp T &kp G    	  &kp Y &kp J &kp I    &kp O   &kp H    &kp ENTER
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp P &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
-              &kp MO(2) &kp GUI &kp SPC    &kp ENT &mo BKSP &kp MO(1)
+              &mo 2 &kp GUI &kp SPC    &kp ENT &kp BKSP &mo 1
                         >;
                 };
 
