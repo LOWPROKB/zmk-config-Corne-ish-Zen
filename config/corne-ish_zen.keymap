@@ -22,7 +22,7 @@
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp D &kp F &kp K    &kp J &kp U &kp R    &kp L   &kp SEMI    &kp BKSP
-   &mo 3 &kp A &kp S &kp E &kp T &kp G    	  &kp Y &kp J &kp I    &kp O   &kp H    &kp ENTER
+   &mo 2 &kp A &kp S &kp E &kp T &kp G    	  &kp Y &kp J &kp I    &kp O   &kp H    &kp ENTER
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp P &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
               &mo 2 &kp LGUI &kp SPC    &kp ENT &kp BKSP &mo 1
                         >;
