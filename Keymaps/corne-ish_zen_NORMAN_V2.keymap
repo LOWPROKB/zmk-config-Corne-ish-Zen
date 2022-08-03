@@ -16,9 +16,9 @@
 #define ADJUST 4
 #define CONFIG 5
 
-&mt {
-    tapping-term-ms = <400>;
-};
+/ &mt {
+/     tapping-term-ms = <400>;
+/ };
 
 / {
         keymap {
