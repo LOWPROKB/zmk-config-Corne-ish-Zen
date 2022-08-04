@@ -23,12 +23,12 @@
 // |  TAB |  Q  |  W  |  D  |  F  |  K  |   |  J  |  U   |  R  |  L  |  ;  | BSPC |
 // | MO-3 |  A  |  S  |  E  |  T  |  G  |   |  Y  |  N   |  I  |  O  |  H  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  P  |  M   |  ,  |  .  |  /  | RSFT |
-//                    | GUI | LWR | SPC |   | ENT | BSPC | MO-1 |
+//                    | GUI | MO-2| SPC |   | ENT | BSPC | MO-1 |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp D &kp F &kp K    &kp J &kp U &kp R    &kp L   &kp SEMI    &kp BSPC
    &mo 3     &kp A &kp S &kp E &kp T &kp G    &kp Y &kp N &kp I    &kp O   &kp H    &kp ENTER
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp P &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
-                   &mo 2 &kp LGUI &kp SPACE   &kp ENTER &kp BSPC &mo 1
+                   &kp LGUI &mo 2 &kp SPACE   &kp ENTER &kp BSPC &mo 1
                         >;
                 };
                 adj_layer {
