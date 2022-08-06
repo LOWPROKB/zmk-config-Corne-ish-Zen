@@ -18,16 +18,16 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-                        label = "ColemakDH";
+                        label = "NORMAN";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  | ESC |
-// | MO-4 |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
-// | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | RSFT |
+// |  TAB |  Q  |  W  |  D  |  F  |  K  |   |  J  |  U   |  R  |  L  |  ;  | ESC |
+// | MO-4 |  A  |  S  |  E  |  T  |  G  |   |  Y  |  N   |  I  |  O  |  H  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  P  |  M   |  ,  |  .  |  /  | RSFT |
 //                    | GUI | MO-3| SPC |   | ENT | MO-1 | MO-2 |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp F &kp P &kp B    &kp J &kp L &kp U    &kp Y   &kp SEMI    &kp ESC
-   &mo 4 &kp A &kp R &kp S &kp T &kp G    &kp M &kp N &kp E &kp I &kp O &kp APOS
-   &kp LSHFT &kp Z &kp X &kp C &kp D &kp V    &kp K &kp H &kp CMMA &kp DOT &kp FSLH &kp RSFT
+   &kp TAB   &kp Q &kp W &kp D &kp F &kp K    &kp J &kp U &kp R    &kp L   &kp SEMI    &kp ESC
+   &mo 4 &kp A &kp S &kp E &kp T &kp G    &kp Y &kp N &kp I &kp O &kp H &kp APOS
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp P &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
                    &kp LGUI &mo 3 &kp SPACE   &kp ENTER  &mo 1 &mo 2
                         >;
                 };
@@ -35,14 +35,14 @@
                 mods_layer {
                         label = "MODS";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  | ESC |
-// | MO-4 |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
-// | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | RSFT |
-//                    | GUI | MO-3| SPC |   | ENT | MO-1 | MO-2 |
-
-   &kp TAB   &kp Q &kp W &kp F &kp P &kp B    &kp J &kp L &kp U    &kp Y   &kp SEMI    &kp BSPC
-   &mo 4 &mt LSHFT A &mt LCTRL R &mt LALT S &mt LGUI T &kp G    &kp M &mt LGUI N &mt LALT E &mt LCTRL I &mt LSHFT O &kp APOS
-   &kp LSHFT &kp Z &kp X &kp C &kp D &kp V    &kp K &kp H &kp CMMA &kp DOT &kp FSLH &kp RSFT
+// |  TAB |  Q  |  W  |  D  |  F  |  K  |   |  J  |  U   |  R  |  L  |  ;  | BSPC |
+// | MO-3 |  A  |  S  |  E  |  T  |  G  |   |  Y  |  N   |  I  |  O  |  H  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  P  |  M   |  ,  |  .  |  /  | RSFT |
+//                    | GUI | MO-2| SPC |   | ENT | BSPC | trans |
+                        bindings = <
+   &kp TAB   &kp Q &kp W &kp D &kp F &kp K    &kp J &kp U &kp R    &kp L   &kp SEMI    &kp BSPC
+   &mo 3 &mt LSHFT A &mt LCTRL S &mt LALT E &mt LGUI T &kp G    &kp Y &mt LGUI N &mt LALT I &mt LCTRL O &mt LSHFT H &kp APOS
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &kp P &kp M &kp CMMA &kp DOT &kp FSLH &kp RSFT
                    &kp LGUI &mo 2 &kp SPACE   &kp ENTER &kp BSPC &trans
                         >;
                 };
