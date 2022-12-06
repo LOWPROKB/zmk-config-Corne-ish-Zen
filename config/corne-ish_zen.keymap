@@ -3,6 +3,10 @@
 * Copyright (c) 2021 Darryl deHaan
 * SPDX-License-Identifier: MIT
 *
+* ref:
+* https://zmk.dev/docs/behaviors
+* https://zmk.dev/docs/codes
+*
 */
 
 #include <behaviors.dtsi>
@@ -14,46 +18,56 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-                        label = "QWERTY";
+                        label = "DEV";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// | TAB    |  Q  |  W  |  E   |  R  |  T/SYM  |   |  Y/SYM  |  U   |  I  |  O  |  P  |  -     |
+// | ESC    |  A  |  S  |  D   |  F  |  G/ARW  |   |  H/ARW  |  J   |  K  |  L  |  ;  |  '     |
+// | SHFT/( |  Z  |  X  |  C   |  V  |  B/NUM  |   |  N      |  M   |  ,  |  .  |  /  | SHFT/) |
+//                      | CTRL | GUI |  RET    |   |  BKSP   | SPC  | ALT |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+   &kp TAB        &kp Q &kp W &kp E &kp R &lt 2 T      &lt 2 Y &kp U  &kp I     &kp O   &kp P    &kp MINUS 
+   &kp ESC        &kp A &kp S &kp D &kp F &lt 1 G      &lt 1 H &kp J  &kp K     &kp L  &kp SEMI  &kp SQT
+   &mt LSHFT LPAR &kp Z &kp X &kp C &kp V &lt 3 B      &lt 3 N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RSHFT RPAR 
+                     &kp LCTRL &kp LGUI &kp RET    &kp BSPC &kp SPACE &kp RALT 
                         >;
                 };
                 lower_layer {
-                        label = "NUMBER";
+                        label = "ARW";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+//               | CTRL | GUI |  RET    |   |  BKSP   | SPC  | ALT |
                         bindings = <
    &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+                     &kp LCTRL &kp LGUI &kp RET    &kp BSPC &kp SPACE &kp RALT 
                         >;
                 };
 
                 raise_layer {
-                        label = "SYMBOL";
+                        label = "SYM";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// | CTRL |     |     |     |  [  |  ]  |   |  {  |  }  |  %  |     |     |  `   |
+// | SHFT |     |     |     |     |     |   |  <  |  >  | '|' |  &  |  /  |      |
+//               | CTRL | GUI |  RET    |   |  BKSP   | SPC  | ALT |
                         bindings = <
    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &kp LCTRL &trans   &trans &trans   &kp RBKT &kp LBKT    &kp LBRC  &kp RBRC  &kp PRCNT       &none &none &kp GRAVE
+   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp LT &kp GT  &kp PIPE &kp AMPS &kp BSLH &trans
+                     &kp LCTRL &kp LGUI &kp RET    &kp BSPC &kp SPACE &kp RALT 
+                        >;
+                };
+
+                numpad_layer {
+                        label = "NUM";
+                        bindings = < 
+   &kp TAB     &none &none &none &none &none                                                                    &kp KP_EQUAL    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp BSPC
+   &kp KP_NLCK &kp LS(LC(LA(LG(A)))) &kp LS(LC(LA(LG(B)))) &kp LS(LC(LA(LG(C)))) &kp LS(LC(LA(LG(D)))) &none    &kp KP_ASTERISK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
+   &tog NUMPAD &kp LS(LC(LA(LG(F)))) &kp LS(LC(LA(LG(G)))) &kp LS(LC(LA(LG(H)))) &kp LS(LC(LA(LG(I)))) &none    &kp KP_SLASH    &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_ENTER &none
+                     &kp LCTRL &kp LGUI &kp RET    &kp BSPC &kp SPACE &kp RALT 
                         >;
                 };
         };
