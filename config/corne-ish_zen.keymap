@@ -23,12 +23,12 @@
 // |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  | ESC |
 // | MO-4 |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | RSFT |
-//                    | GUI | MO-3| SPC |   | ENT | MO-1 | MO-2 |
+//                    | GUI | MO-3| SPC |   |MT-ENT|MO-1 | MO-2 |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp F &kp P &kp B    &kp J &kp L &kp U    &kp Y   &kp SEMI    &kp ESC
    &mo 4 &kp A &kp R &kp S &kp T &kp G    &kp M &kp N &kp E &kp I &kp O &kp APOS
    &kp LSHFT &kp Z &kp X &kp C &kp D &kp V    &kp K &kp H &kp CMMA &kp DOT &kp FSLH &kp RSFT
-                   &kp LGUI &mo 3 &kp SPACE   &kp ENTER  &mo 1 &mo 2
+                   &kp LGUI &mo 3 &kp SPACE   &mt LSHFT ENTER  &mo 1 &mo 2
                         >;
                 };
 
@@ -36,14 +36,14 @@
                         label = "MODS";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  | ESC |
-// | MO-4 |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
+// | MO-4 | MT-A|MT-R |MT-S |MT-T |  G  |   |  M  |MT-N  |MT-E |MT-I |MT-O |  '   |
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | RSFT |
-//                    | GUI | MO-3| SPC |   | ENT | MO-1 | MO-2 |
+//                    | GUI | MO-3| SPC |   | ENT | trans| MO-2 |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp F &kp P &kp B    &kp J &kp L &kp U    &kp Y   &kp SEMI    &kp BSPC
    &mo 4 &mt LSHFT A &mt LCTRL R &mt LALT S &mt LGUI T &kp G    &kp M &mt LGUI N &mt LALT E &mt LCTRL I &mt LSHFT O &kp APOS
    &kp LSHFT &kp Z &kp X &kp C &kp D &kp V    &kp K &kp H &kp CMMA &kp DOT &kp FSLH &kp RSFT
-                   &kp LGUI &mo 2 &kp SPACE   &kp ENTER &kp BSPC &trans
+                   &kp LGUI &mo 3 &kp SPACE   &kp ENTER &trans &trans 
                         >;
                 };
                 
@@ -51,14 +51,14 @@
                         label = "ADJ";
 // -----------------------------------------------------------------------------------------
 // | RESET|boot |     |     |     |     |   |     |     |     |     |     |boot |RESET
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | Vol+|     |     |     |     |      |Vol+
-// |      |     |     |     |     |     |   | Vol-| MUTE| PREV| NEXT|     |      |Vol-
-//                    |     |     |     |   | Play|     | MUTE|
+// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | Vol+| Vol+|     |     |     |      |Vol+
+// |      |     |     |     |     |     |   | Vol-| Vol-| PREV| NEXT|     |      |Vol-
+//                    |     |     |     |   | Play| MUTE|trans|
                         bindings = <
    &reset     &bootloader  &none        &none        &none        &none         &none        &none      &none      &none      &bootloader &reset
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &kp C_VOL_UP &none      &none      &none      &none &kp C_VOL_UP
-   &none      &none        &none        &none        &none        &none         &kp C_VOL_DN &kp K_MUTE &kp C_PREV &kp C_NEXT &none &kp C_VOL_DN
-                          	        	&none     	 &none        &none      	&kp C_PP     &trans &kp K_MUTE 
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &kp C_VOL_UP &kp C_VOL_UP      &none      &none      &none &kp C_VOL_UP
+   &none      &none        &none        &none        &none        &none         &kp C_VOL_DN &kp C_VOL_DN &kp C_PREV &kp C_NEXT &none &kp C_VOL_DN
+                          	        	&none     	 &none        &none      	&kp C_PP   &kp K_MUTE  &trans  
                         >;
                 };
 
@@ -68,12 +68,12 @@
 // |  ESC |     |SG-3 |SG-4 |SGC4 |SG-5 |   |  =  |  7  |  8  |  9  |  [  | ]    |
 // |MO-5  |     |     |     |     |     |   |  -  |  4  |  5  |  6  |  '  |  `   |
 // | SHFT |     |     |     |SAG-V| CG-V|   |  /  |  1  |  2  |  3  |  \  |  SHFT|
-//                    |     |     | SPC |   | ENT |  0  |  .   |
+//                    |MO-5 |trans| SPC |   |MT-ENT| 0  |  .   |
                         bindings = <
    &kp ESC   &none  &kp LS(LG(N3)) &kp LS(LG(N4)) &kp LS(LG(LC(N4))) &kp LS(LG(N5))     &kp EQUAL   &kp N7 &kp N8 &kp N9 &kp LBKT &kp RBKT
    &mo 5 	 &none 	&none 		   &none 		  &none 			 &none    			&kp MINUS 	&kp N4 &kp N5 &kp N6 &kp APOS  &kp GRAVE
    &kp LSHFT &none  &none    	   &none 		  &kp LS(LA(LG(V)))  &kp LC(LG(V)) 		&kp FSLH    &kp N1 &kp N2 &kp N3 &kp BSLH &kp RSHFT
-              										&none &none 	 &kp SPACE    		&kp ENTER 	&kp N0 &kp KP_DOT
+              										&mo 5 &trans 	 &kp SPACE    		&mt LSHFT ENTER 	&kp N0 &kp KP_DOT
                         >;
                 };
                 
@@ -81,7 +81,7 @@
                         label = "NAV";
 // -----------------------------------------------------------------------------------------
 // |  ESC |     |     |     |     |     |   |     |BSPC | UP  | Del |PgUp | Home |
-// |      |SHFT |     |     |     |     |   |A-Lft|Left |Down |Rght |A-Rgt| End  |
+// |trans |SHFT |     |     |     |     |   |A-Lft|Left |Down |Rght |A-Rgt| End  |
 // | SHFT |     |     |     |     |     |   |Caps |     |     |     |     |      |
 //                    | GUI |     | SPC |   |A-BS |     |     |
                         bindings = <
