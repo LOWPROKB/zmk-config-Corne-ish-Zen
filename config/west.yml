@@ -1,11 +1,11 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/LOWPROKB
+      url-base: https://github.com/caksoylar
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: Board-Corne-ish-Zen-dedicated-work-queue
+      revision: add-zen-v1
       import: app/west.yml
   self:
     path: config
