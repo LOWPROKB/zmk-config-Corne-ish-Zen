@@ -4,12 +4,6 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-  chosen {
-    zmk,matrix_transform = &default_transform;
-    //zmk,matrix_transform = &five_column_transform;
-  };
-};
-/ {
     combos {
         compatible = "zmk,combos";
         jk_esc {
@@ -69,9 +63,9 @@
                 raise_layer {
                         label = "SYMBOL";
                         bindings = <
-&kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT  &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-&kp LCTRL &trans   &trans &trans   &trans   &LPAR      &kp RPAR  &kp MINUS &kp EQUAL       &kp RBKT &kp BSLH &kp GRAVE
-&kp LSHFT &trans   &trans &trans   &trans   &LBKT      &kp RBKT  &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+&kp GRAVE &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT  &kp CARET &kp AMPS  &kp STAR  &kp LPAR &kp RPAR &kp BSPC
+&kp LCTRL &trans   &trans &trans   &trans   &LPAR      &kp RPAR  &kp MINUS &kp EQUAL &kp RBKT &kp BSLH &kp GRAVE
+&kp LSHFT &trans   &trans &trans   &trans   &LBKT      &kp RBKT  &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
                           &to 0    &trans   &trans     &trans    &trans    &trans
                         >;
                 };
