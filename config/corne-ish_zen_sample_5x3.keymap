@@ -1,0 +1,89 @@
+/*
+*
+* Copyright (c) 2021 Darryl deHaan
+* SPDX-License-Identifier: MIT
+*
+*/
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define LETR  0
+#define NUMS   1
+#define ARWS  2
+
+/ {
+  chosen {
+    //zmk,matrix_transform = &default_transform;
+    zmk,matrix_transform = &five_column_transform;
+  };
+};
+
+
+&mt {
+    tapping-term-ms = <150>;
+};
+
+/ {
+
+behaviors {
+    hm: homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <150>;
+        quick-tap-ms = <0>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+    };
+};
+
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+                        label = "LETR";
+// -----------------------------------------------------------------------------------------
+// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
+// |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |
+// |  LS Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  RS /  |
+//     | GUI RET | L2 BSPC | L1 SPC |   | ALT TAB | CTRL SPC  | GUI ESC |
+                        bindings = <
+   &kp Q &kp W &kp E &kp R &kp T           &kp Y &kp U  &kp I     &kp O   &kp P
+   &kp A &kp S &kp D &kp F &kp G           &kp H &kp J  &kp K     &kp L   &kp SEMI
+   &hm LSHIFT Z &kp X &kp C &kp V &kp B    &kp N &kp M  &kp COMMA &kp DOT &hm RSHIFT FSLH
+      &mt LGUI ENTER &lt ARWS BKSP &lt NUMS SPACE   &mt LALT TAB  &hm LCTRL SPC  &mt LGUI ESC
+                        >;
+                };
+                numbers_layer {
+                        label = "NUMS";
+// -----------------------------------------------------------------------------------------
+// |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
+// |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
+// |  `  |  ~  |     |  [  |  ]  |   |  +  |  -  |  =  |  \  |  '  |
+//                |    |     |   |   |    |     |    |
+                        bindings = <
+  &kp EXCL   &kp AT      &kp HASH  &kp DLLR   &kp PRCNT     &kp CARET &kp AMPS   &kp KP_MULTIPLY &kp LPAR  &kp RPAR
+  &kp N1     &kp N2      &kp N3    &kp N4     &kp N5        &kp N6    &kp N7     &kp N8          &kp N9    &kp N0
+  &kp GRAVE  &kp TILDE   &trans    &kp LBKT   &kp RBKT      &kp PLUS  &kp MINUS  &kp EQUAL       &kp BSLH  &kp SQT
+                          	    &trans  &trans  &trans      &trans  &trans  &trans
+                        >;
+                };
+
+                arrows_layer {
+                        label = "ARWS";
+// -----------------------------------------------------------------------------------------
+// |     | sav | prnt | fnd |     |  |  |     |     |     |     |
+// | slct|copy | cut | pst | ss  |   |  | LFT | DWN |  UP | RGT |
+// |     |     |     |     |     |   |  |Home | pgd | pgu | end |
+//                |    |     |   |   |    |     |    |
+                        bindings = <
+   &trans    &kp LG(S) &kp LG(P) &kp LG(F) &trans        &trans   &trans    &trans    &trans    &trans
+   &kp LG(A) &kp LG(X) &kp LG(C) &kp LG(V) &kp LA(G)     &trans &kp LEFT &kp DOWN  &kp UP    &kp RIGHT
+   &trans    &trans    &trans    &trans    &trans        &trans&kp HOME &kp PG_DN &kp PG_UP &kp END
+                    &trans  &trans  &trans                &trans  &trans  &trans
+                        >;
+                };
+        };
+};
