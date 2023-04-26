@@ -2,6 +2,10 @@
 
 ![Corne-ish Zen Logo](zenlogo.png)
 
+> **Warning**
+>
+> If you have a Corne-ish Zen from round 3 of the group buy (delivered after October 2022) you should use the the config repo for V2 PCBs, available at [LOWPROKB/zmk-config-zen-2](https://github.com/LOWPROKB/zmk-config-zen-2) instead of this one!
+
 This repo is the official configuration of the Corne-ish Zen low profile wireless mechanical keyboard. Use it to develop your own keymap and easily build your own ZMK firmware to run on your Corne-ish Zen. These steps will get you using your keymap on your keyboard in the fastest time possible. It uses the GitHub Actions feature to build your firmware online, rather than setting up a complex tool chain on your local computer.
 If you are looking to dig deeper into ZMK and develop new functionality, it is recommended to follow the steps of installing ZMK as found on the official ZMK documentation site (linked below).
 
